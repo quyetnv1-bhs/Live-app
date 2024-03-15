@@ -1,3 +1,32 @@
+## Overview
+
+# Project name: Live app
+
+# Author: Nguyen Van Quyet
+
+# Description:
+
+This project builds a video streaming application that successfully integrates technologies such as Clerk and livekit into the project.
+
+# Expected function:
+
+- Users can watch online videos and perform online video streaming.
+- User management function
+- Live stream management
+- Manage broadcast channels
+- Parameter and service configuration with Clerk platform technology
+- Synchronize database with Clerk platform
+- Manage connections on many social networking platforms
+- The website will update information in real time and save directly to the database, allowing users to administrate, monitor and manage visually.
+
+# Purpose:
+
+- The system is built to help small and medium-sized businesses and individuals manage and operate live streaming - their services easily, quickly, conveniently, optimally and in accordance with their needs. . . its business model.
+
+## The project is built and developed by NVQ.
+
+## More information about this project:
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started

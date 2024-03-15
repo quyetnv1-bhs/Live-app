@@ -14,6 +14,7 @@ import {
 import { updateUser } from "@/actions/user";
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
+import { Pencil } from "lucide-react";
 
 interface BioModalProps {
   initialValue: string | null;
@@ -42,7 +43,9 @@ export const BioModal = ({ initialValue }: BioModalProps) => {
     <Dialog>
       <DialogTrigger asChild>
         <Button variant="link" size="sm" className="ml-auto">
-          Edit
+          <div className="rounded-md bg-blue-600 p-2 h-auto w-auto">
+            <Pencil className="h-5 w-5" />
+          </div>
         </Button>
       </DialogTrigger>
       <DialogContent>

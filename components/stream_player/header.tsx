@@ -57,7 +57,14 @@ export const Header = ({
             <h2 className="text-lg font-semibold">{hostName}</h2>
             <VerifiedMark />
           </div>
-          <p className="text-sm font-semibold">{name}</p>
+          <div className="flex items-center justify-start gap-x-2">
+            <p className="text-sm font-semibold leading-6">{name}</p>
+            {isLive ? (
+              <p className="w-3 h-3 rounded-full bg-green-500 leading-6"></p>
+            ) : (
+              <p className="w-3 h-3 rounded-full bg-red-600 leading-6"></p>
+            )}
+          </div>
           {isLive ? (
             <div className="font-semibold flex gap-x-1 items-center text-xs text-rose-500">
               <UserIcon className="h-4 w-4" />
@@ -66,13 +73,13 @@ export const Header = ({
                 {participantCount === 1 ? "viewer" : "viewers"}
               </p>
               <Link href="" className="  ">
-                <p className=" text-foreground font-semibold text-primary uppercase text-">
+                <p className="font-semibold text-primary uppercase text-">
                   {category}
                 </p>
               </Link>
             </div>
           ) : (
-            <p className="font-semibold text-xs text-muted-foreground">
+            <p className="font-semibold text-xs text-muted-foreground leading-6">
               Offline
             </p>
           )}

@@ -3,7 +3,7 @@
 import { toast } from "sonner";
 import { useState, useTransition, useRef, ElementRef } from "react";
 import { useRouter } from "next/navigation";
-import { Trash } from "lucide-react";
+import { Pencil, Trash } from "lucide-react";
 import Image from "next/image";
 
 import {
@@ -73,7 +73,9 @@ export const InfoModal = ({
     <Dialog>
       <DialogTrigger asChild>
         <Button variant="link" size="sm" className="ml-auto">
-          Edit
+          <div className="rounded-md bg-blue-600 p-2 h-auto w-auto">
+            <Pencil className="h-5 w-5" />
+          </div>
         </Button>
       </DialogTrigger>
       <DialogContent>

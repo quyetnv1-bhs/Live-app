@@ -1,9 +1,9 @@
+import { Logo } from "@/app/components";
 import { Actions } from "./action";
-import { Logo } from "./logo";
 
 export const Navbar = () => {
   return (
-    <nav className="fixed top-0 w-full h-20 z-[49] bg-[#252731] px-2 log:px-4 flex justify-between items-center shadow-sm">
+    <nav className="fixed top-0 w-full h-20 z-[49] bg-[#252731] px-2 lg:px-6 flex justify-between items-center shadow-sm">
       <Logo />
       <Actions />
     </nav>

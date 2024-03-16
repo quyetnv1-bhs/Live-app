@@ -34,8 +34,6 @@ export const Header = ({
 }: HeaderProps) => {
   const participants = useParticipants();
   const participant = useRemoteParticipant(hostIdentity);
-  console.log("participant", participant);
-
   const isLive = !!participant;
   const participantCount = participants.length - 1;
 
@@ -43,7 +41,7 @@ export const Header = ({
   const isHost = viewerIdentity === hostAsViewer;
 
   return (
-    <div className="flex flex-col lg:flex-row gap-y-4 lg:gap-y-0 items-start justify-between px-4">
+    <div className="flex flex-col lg:flex-row gap-y-4 lg:gap-y-0 items-start justify-between pl-4">
       <div className="flex items-center gap-x-3">
         <UserAvatar
           imageUrl={imageUrl}

@@ -5,6 +5,7 @@ import { useState } from "react";
 import { cn } from "@/lib/utils";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
+import { Send } from "lucide-react";
 import { Skeleton } from "@/components/ui/skeleton";
 
 import { ChatInfo } from "./chat_info";
@@ -57,7 +58,7 @@ export const ChatForm = ({
   return (
     <form
       onSubmit={handleSubmit}
-      className="flex flex-col items-center gap-y-4 p-3"
+      className="flex items-center justify-start p-3"
     >
       <div className="w-full">
         <ChatInfo isDelayed={isDelayed} isFollowersOnly={isFollowersOnly} />
@@ -72,9 +73,13 @@ export const ChatForm = ({
           )}
         />
       </div>
-      <div className="ml-auto">
-        <Button type="submit" variant="primary" size="sm" disabled={isDisabled}>
-          Chat
+      <div className="">
+        <Button
+          type="submit"
+          className="h-full bg-transparent text-center w-fit hover:bg-transparent"
+          disabled={isDisabled}
+        >
+          <Send className="text-white" />
         </Button>
       </div>
     </form>

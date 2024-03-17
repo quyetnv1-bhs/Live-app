@@ -240,7 +240,7 @@
     loglevel "1.8.1"
     rxjs "7.8.1"
 
-"@livekit/components-react@^1.5.1":
+"@livekit/components-react@^1.5.3":
   version "1.5.3"
   resolved "https://registry.yarnpkg.com/@livekit/components-react/-/components-react-1.5.3.tgz#e26a3bccbc7ff978e7ae89fc439c36c56faef9e1"
   integrity sha512-OL2BhyltXz4GTEmTPZPMehBMoWWNILTqHClPpFLJyM3KLnk2lLvaH9QWwlbqIJVr6vkm39pvq39ckv6GKa7jJw==
@@ -3668,6 +3668,7 @@ string-to-color@^2.2.2:
     rgb-hex "^3.0.0"
 
 "string-width-cjs@npm:string-width@^4.2.0", string-width@^4.1.0:
+  name string-width-cjs
   version "4.2.3"
   resolved "https://registry.yarnpkg.com/string-width/-/string-width-4.2.3.tgz#269c7117d27b05ad2e536830a8ec895ef9c6d010"
   integrity sha512-wKyQRQpjJ0sIp62ErSZdGsjMJWsap5oRNihHhu6G7JVO/9jIB6UyevL+tXuOqrng8j/cxKTWyWUwvSTriiZz/g==

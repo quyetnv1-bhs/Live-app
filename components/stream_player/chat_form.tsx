@@ -76,7 +76,7 @@ export const ChatForm = ({
       <div className="">
         <Button
           type="submit"
-          className="h-full bg-transparent text-center w-fit hover:bg-transparent"
+          className="h-full bg-transparent text-center w-fit hover:bg-transparent px-1"
           disabled={isDisabled}
         >
           <Send className="text-white" />

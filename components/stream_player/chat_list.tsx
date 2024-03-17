@@ -5,13 +5,23 @@ import { ReceivedChatMessage } from "@livekit/components-react";
 import { Skeleton } from "@/components/ui/skeleton";
 
 import { ChatMessage } from "./chat_message";
+import { PropsUpdateChat } from "./chat";
 
 interface ChatListProps {
   messages: ReceivedChatMessage[];
   isHidden: boolean;
+  onSubmitUpdate: () => void;
+  onchangeUpdate: (message: string, messageId: string) => void;
+  valueUpdate: PropsUpdateChat;
 }
 
-export const ChatList = ({ messages, isHidden }: ChatListProps) => {
+export const ChatList = ({
+  messages,
+  isHidden,
+  onSubmitUpdate,
+  onchangeUpdate,
+  valueUpdate,
+}: ChatListProps) => {
   if (isHidden || !messages || messages.length === 0) {
     return (
       <div className="flex flex-1 items-center justify-center">
@@ -23,9 +33,15 @@ export const ChatList = ({ messages, isHidden }: ChatListProps) => {
   }
 
   return (
-    <div className="flex flex-1 flex-col-reverse overflow-y-auto p-3 h-full">
+    <div className="flex flex-1 flex-col-reverse overflow-y-auto h-full">
       {messages.map((message) => (
-        <ChatMessage key={message.timestamp} data={message} />
+        <ChatMessage
+          key={message.timestamp}
+          data={message}
+          onSubmitUpdate={onSubmitUpdate}
+          onchangeUpdate={onchangeUpdate}
+          valueUpdate={valueUpdate}
+        />
       ))}
     </div>
   );

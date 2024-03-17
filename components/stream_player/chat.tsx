@@ -25,7 +25,10 @@ interface ChatProps {
   isChatDelayed: boolean;
   isChatFollowersOnly: boolean;
 }
-
+export type PropsUpdateChat = {
+  message: string;
+  messageId: string;
+};
 export const Chat = ({
   hostName,
   hostIdentity,
@@ -44,8 +47,12 @@ export const Chat = ({
 
   const isHidden = !isChatEnabled || !isOnline;
 
-  const [value, setValue] = useState("");
-  const { chatMessages: messages, send } = useChat();
+  const [value, setValue] = useState<string>("");
+  const [valueUpdate, setValueUpdate] = useState<PropsUpdateChat>({
+    message: "",
+    messageId: "",
+  });
+  const { chatMessages: messages, send, update } = useChat();
 
   useEffect(() => {
     if (matches) {
@@ -62,17 +69,32 @@ export const Chat = ({
     send(value);
     setValue("");
   };
+  const onSubmitUpdate = () => {
+    if (!update || !valueUpdate.messageId) return;
+    // update({ message: value, messageId: valueUpdate.messageId });
+    setValue("");
+    setValueUpdate({ messageId: "", message: "" });
+  };
 
   const onChange = (value: string) => {
     setValue(value);
   };
 
+  const onchangeUpdate = (message: string, messageId: string) => {
+    setValueUpdate({ message, messageId });
+  };
   return (
     <div className="flex flex-col bg-background border-l w-full border-b pt-0 h-[calc(100vh-80px)]">
       <ChatHeader />
       {variant === ChatVariant.CHAT && (
         <>
-          <ChatList messages={reversedMessages} isHidden={isHidden} />
+          <ChatList
+            messages={reversedMessages}
+            isHidden={isHidden}
+            valueUpdate={valueUpdate}
+            onSubmitUpdate={onSubmitUpdate}
+            onchangeUpdate={onchangeUpdate}
+          />
           <ChatForm
             onSubmit={onSubmit}
             value={value}

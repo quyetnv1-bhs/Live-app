@@ -10,7 +10,7 @@ interface ChatMessageProps {
 
 export const ChatMessage = ({ data }: ChatMessageProps) => {
   return (
-    <div className="flex gap-2 py-2 items-center justify-start rounded-md hover:bg-white/5 w-full">
+    <div className="flex gap-2 py-2 px-3 items-center justify-start rounded-md hover:bg-white/5 w-full">
       <Image
         src="/web.svg"
         alt={data.from?.name || "Maris"}

@@ -17,28 +17,13 @@ export const Navigation = () => {
 
   const routes = [
     {
-      label: "Stream",
-      href: `/u/${user?.username}`,
+      label: "User",
+      href: `/`,
       icon: Fullscreen,
     },
     {
-      label: "Keys",
-      href: `/u/${user?.username}/keys`,
-      icon: KeyRound,
-    },
-    {
-      label: "Chat",
-      href: `/u/${user?.username}/chat`,
-      icon: MessageSquare,
-    },
-    {
-      label: "Community",
-      href: `/u/${user?.username}/community`,
-      icon: Users,
-    },
-    {
       label: "Wallet",
-      href: `/u/${user?.username}/payment`,
+      href: `/checkout`,
       icon: Wallet2Icon,
     },
   ];
@@ -54,7 +39,7 @@ export const Navigation = () => {
   }
 
   return (
-    <ul className="space-y-2 px-2 pt-4 lg:pt-0">
+    <ul className="space-y-2 px-2">
       {routes.map((route) => (
         <NavItem
           key={route.href}

@@ -20,10 +20,14 @@ interface ChatProps {
   hostName: string;
   hostIdentity: string;
   viewerName: string;
+  viewerIdentity?: string;
   isFollowing: boolean;
   isChatEnabled: boolean;
   isChatDelayed: boolean;
   isChatFollowersOnly: boolean;
+  userIdStripe?: string;
+  email?: string;
+  username?: string;
 }
 
 export const Chat = ({
@@ -34,8 +38,14 @@ export const Chat = ({
   isChatEnabled,
   isChatDelayed,
   isChatFollowersOnly,
+  viewerIdentity,
+  userIdStripe,
+  email,
+  username,
 }: ChatProps) => {
   const matches = useMediaQuery("(max-width: 1024px)");
+  const hostAsViewer = `host-${hostIdentity}`;
+  const isHost = viewerIdentity === hostAsViewer;
   const { variant, onExpand } = useChatSidebar((state) => state);
   const connectionState = useConnectionState();
   const participant = useRemoteParticipant(hostIdentity);
@@ -45,6 +55,7 @@ export const Chat = ({
   const isHidden = !isChatEnabled || !isOnline;
 
   const [value, setValue] = useState("");
+
   const { chatMessages: messages, send } = useChat();
 
   useEffect(() => {
@@ -74,6 +85,7 @@ export const Chat = ({
         <>
           <ChatList messages={reversedMessages} isHidden={isHidden} />
           <ChatForm
+            isHost={isHost}
             onSubmit={onSubmit}
             value={value}
             onChange={onChange}
@@ -81,6 +93,9 @@ export const Chat = ({
             isFollowersOnly={isChatFollowersOnly}
             isDelayed={isChatDelayed}
             isFollowing={isFollowing}
+            userIdStripe={userIdStripe}
+            email={email}
+            username={username}
           />
         </>
       )}

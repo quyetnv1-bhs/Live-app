@@ -3,10 +3,14 @@ import { LogOut } from "lucide-react";
 import { UserButton } from "@clerk/nextjs";
 
 import { Button } from "@/components/ui/button";
+import { getCurrentUser } from "@/app/api/auth.service";
+import { StripeBalance } from "../stripe";
+export const Actions = async () => {
+  const currentUser = await getCurrentUser();
 
-export const Actions = () => {
   return (
     <div className="flex items-center justify-end gap-x-2">
+      <StripeBalance currentUser={currentUser} />
       <Button
         size="sm"
         variant="ghost"

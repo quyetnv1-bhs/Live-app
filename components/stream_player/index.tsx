@@ -36,12 +36,14 @@ interface StreamPlayerProps {
   user: CustomUser;
   stream: CustomStream;
   isFollowing: boolean;
+  ViewerInfo?: any;
 }
 
 export const StreamPlayer = ({
   user,
   stream,
   isFollowing,
+  ViewerInfo,
 }: StreamPlayerProps) => {
   const { token, name, identity } = useViewerToken(user.id);
   const { collapsed } = useChatSidebar((state) => state);
@@ -104,10 +106,14 @@ export const StreamPlayer = ({
             viewerName={name}
             hostName={user.username}
             hostIdentity={user.id}
+            viewerIdentity={identity}
             isFollowing={isFollowing}
             isChatEnabled={stream.isChatEnabled}
             isChatDelayed={stream.isChatDelayed}
             isChatFollowersOnly={stream.isChatFollowersOnly}
+            userIdStripe={ViewerInfo?.userIdStripe}
+            email={ViewerInfo?.email}
+            username={ViewerInfo?.username}
           />
         </div>
       </LiveKitRoom>

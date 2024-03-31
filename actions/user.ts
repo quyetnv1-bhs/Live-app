@@ -23,3 +23,17 @@ export const updateUser = async (values: Partial<User>) => {
 
   return user;
 };
+export const updateUserIDofStripe = async (values: Partial<User>) => {
+  const self = await getCurrentUser();
+  const validData = {
+    userIdStripe: values?.userIdStripe,
+  };
+  const user = await db.user.update({
+    where: { id: self.id },
+    data: { ...validData },
+  });
+  revalidatePath(`/${self.username}`);
+  revalidatePath(`/u/${self.username}`);
+
+  return user;
+};

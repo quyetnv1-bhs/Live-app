@@ -23,44 +23,27 @@ export const UserItem = ({
   isLive,
 }: UserItemProps) => {
   const pathName = usePathname();
-  const { collapsed, onCollapse, onExpand } = useSidebar((state) => state);
   const href = `/${userName}`;
   const isActive = pathName === href;
 
   return (
     <Button
       variant="ghost"
-      className={cn(
-        "w-full h-12",
-        collapsed ? "justify-center" : "justify-start",
-        isActive && "bg-accent"
-      )}
+      className={cn("w-full h-12 pl-4", isActive && "bg-accent")}
       asChild
     >
       <Link href={href}>
-        <div
-          className={cn(
-            "flex items-center w-full gap-x-4",
-            collapsed && "justify-center"
-          )}
-        >
-          <UserAvatar
-            imageUrl={imageUrl}
-            userName={userName}
-            isLive={isLive}
-            showBadge={collapsed}
-          />
-          {!collapsed && (
-            <div className="w-[110px]">
-              <p className="truncate font-semibold">{userName}</p>
-              {isLive && (
-                <p className="truncate text-[11px] text-muted-foreground">
-                  {category}
-                </p>
-              )}
-            </div>
-          )}
-          {!collapsed && isLive && <LiveBadge className="ml-auto" />}
+        <div className={cn("flex items-center w-full gap-x-4")}>
+          <UserAvatar imageUrl={imageUrl} userName={userName} isLive={isLive} />
+          <div className="w-[110px]">
+            <p className="truncate font-semibold">{userName}</p>
+            {isLive && (
+              <p className="truncate text-[11px] text-muted-foreground">
+                {category}
+              </p>
+            )}
+          </div>
+          {isLive && <LiveBadge className="ml-auto" />}
         </div>
       </Link>
     </Button>

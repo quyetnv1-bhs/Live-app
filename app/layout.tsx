@@ -12,7 +12,6 @@ export const metadata: Metadata = {
   title: "Live App",
   description: "Developed by NVQ",
 };
-
 export default function RootLayout({
   children,
 }: {

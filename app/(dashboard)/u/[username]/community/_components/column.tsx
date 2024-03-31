@@ -44,6 +44,7 @@ export const columns: ColumnDef<BlockedUser>[] = [
       <Button
         variant="ghost"
         onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
+        className="p-0"
       >
         Date blocked
         <ArrowUpDown className="ml-2 h-4 w-4" />
@@ -52,6 +53,7 @@ export const columns: ColumnDef<BlockedUser>[] = [
   },
   {
     id: "actions",
+    header: () => <p className="p-0 w-full block text-center">Action</p>,
     cell: ({ row }) => <UnblockButton userId={row.original.userId} />,
   },
 ];

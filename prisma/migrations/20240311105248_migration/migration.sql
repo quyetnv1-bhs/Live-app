@@ -5,6 +5,9 @@ CREATE TABLE "User" (
     "imageUrl" TEXT NOT NULL,
     "externalUserId" TEXT NOT NULL,
     "bio" TEXT,
+    "email" TEXT NOT NULL
+    "userIdStripe" TEXT,
+    "availableBalances" TEXT,
     "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "updatedAt" TIMESTAMP(3) NOT NULL,
 

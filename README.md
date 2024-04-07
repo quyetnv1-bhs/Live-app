@@ -25,6 +25,15 @@ This project builds a video streaming application that successfully integrates t
 
 ## The project is built and developed by NVQ.
 
+# run ngrok
+
+ngrok http --domain=grouse-fit-cow.ngrok-free.app 3000
+
+# genarate db
+
+npx prisma db push
+npx prisma generate
+
 ## More information about this project:
 
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
